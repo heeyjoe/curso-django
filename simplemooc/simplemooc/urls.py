@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .core import views
+from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('contato/', views.contact),
-    path('', views.home),
+    path('', include('simplemooc.core.urls', namespace = 'core')),
+    #path('contato/', views.contact, name='contato'),
+    #path('', views.home, name='home'),
 ]
